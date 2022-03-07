@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sup, here's the time right now</h1>
+    <div id="time-box">hey</div>
+
+    <script>
+
+        /*
+
+        object properties:
+
+        currentDateTime:
+        currentFileTime:
+        dayOfTheWeek:
+        isDayLightSavingsTime:
+        ordinalDate:
+        serviceResponse:
+        timeZoneName:
+        */
+
+        const timeBoxHtmlElement = document.getElementById("time-box")
+
+        fetch("http://worldclockapi.com/api/json/utc/now")
+        .then( response => response.json())
+        .then( response => {
+            
+            currentDay = ""+response.dayOfTheWeek 
+            console.log(currentDay)
+
+            timeBoxHtmlElement.innerHTML = ""+response.currentDateTime.replace(/[T-Z]/gm,"").substring(10,16)}
+        )
+
+    </script>
+    
+</body>
+</html>
